@@ -8,6 +8,9 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { MenuBarComponent } from './menu-bar/menu-bar.component';
 import { FooterBarComponent } from './footer-bar/footer-bar.component';
 import { LoginComponent } from './login/login.component';
+import { ErrorComponent } from './error/error.component';
+import { CardsListComponent } from './cards-list/cards-list.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +18,10 @@ import { LoginComponent } from './login/login.component';
     WelcomeComponent,
     MenuBarComponent,
     FooterBarComponent,
-    LoginComponent
+    LoginComponent,
+    ErrorComponent,
+    CardsListComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
