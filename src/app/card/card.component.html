@@ -1,0 +1,19 @@
+<h2>Card Details</h2>
+
+<div class="container">
+  <fieldset class="form-group">
+    <label>Name</label>
+    <input type="text" class="form-control" name="name" required="required" [(ngModel)]="card.name">
+  </fieldset>
+
+  <fieldset class="form-group">
+      <label>Expiration</label>
+      <input type="date" class="form-control" name="Expiration" required="required" 
+      [ngModel]="card.expiration | date:'yyyy-MM-dd' "
+      (ngModelChange)="card.expiration = $event">
+    </fieldset>
+
+    <fieldset class="form-group">
+        <button class="btn btn-success" (click)="saveCard()">Save</button>
+      </fieldset>
+</div>

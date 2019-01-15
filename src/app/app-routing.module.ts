@@ -6,6 +6,7 @@ import { ErrorComponent } from './error/error.component';
 import { CardsListComponent } from './cards-list/cards-list.component';
 import { LogoutComponent } from './logout/logout.component';
 import { RouteGuardService } from './service/route-guard.service';
+import { CardComponent } from './card/card.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'logout', component: LogoutComponent, canActivate:[RouteGuardService] },
   { path: 'welcome/:name', component: WelcomeComponent, canActivate:[RouteGuardService] },
   { path: 'cards', component: CardsListComponent, canActivate:[RouteGuardService] },
+  { path: 'card/:id', component: CardComponent, canActivate:[RouteGuardService] },
   { path: '**', component: ErrorComponent }
 ];
 

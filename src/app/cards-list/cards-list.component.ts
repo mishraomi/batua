@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CardService } from '../service/card/card.service';
+import { Router } from '@angular/router';
 
 export class Card {
 
@@ -19,15 +21,32 @@ export class Card {
 
 export class CardsListComponent implements OnInit {
 
-  cards = [
-    new Card(1, 'ICICI', new Date()),
-    new Card(2, 'Yes Bank', new Date()),
-    new Card(3, 'Citi Bank', new Date())
-  ]
+  cards: Card[]
 
-  constructor() { }
+  constructor(private cardService: CardService, private router: Router) { }
 
   ngOnInit() {
+    this.refreshCards()
+  }
+
+  refreshCards(){
+    this.cardService.getAllCards('firebolt').subscribe(
+      response => {
+        this.cards = response
+      }
+    )
+  }
+
+  deleteCard(id){
+    this.cardService.deleteCard('firebolt', id).subscribe(
+      response => {
+        this.refreshCards();
+      }
+    )
+  }
+
+  updateCard(id){
+    this.router.navigate(['card', id])
   }
 
 }

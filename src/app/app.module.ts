@@ -11,6 +11,8 @@ import { LoginComponent } from './login/login.component';
 import { ErrorComponent } from './error/error.component';
 import { CardsListComponent } from './cards-list/cards-list.component';
 import { LogoutComponent } from './logout/logout.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
   declarations: [
@@ -21,12 +23,14 @@ import { LogoutComponent } from './logout/logout.component';
     LoginComponent,
     ErrorComponent,
     CardsListComponent,
-    LogoutComponent
+    LogoutComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
