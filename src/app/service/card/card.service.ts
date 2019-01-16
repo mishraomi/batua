@@ -21,10 +21,12 @@ export class CardService {
     return this.http.get<Card>(`http://localhost:8080/users/${username}/cards/${id}`);
   }
 
+  updateCard(username, id, card){
+    return this.http.put(`http://localhost:8080/users/${username}/cards/${id}`, card);
+  }
 
-
-  // updateCard(username, id){
-  //   return this.http.put<>(`http://localhost:8080/users/${username}/cards/${id}`);
-  // }
+  addCard(username, card){
+    return this.http.post(`http://localhost:8080/users/${username}/cards`, card);
+  }
 
 }

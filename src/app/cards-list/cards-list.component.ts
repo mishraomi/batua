@@ -49,4 +49,8 @@ export class CardsListComponent implements OnInit {
     this.router.navigate(['card', id])
   }
 
+  addCard(){
+    this.router.navigate(['card', -1])
+  }
+
 }

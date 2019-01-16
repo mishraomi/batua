@@ -11,8 +11,9 @@ import { LoginComponent } from './login/login.component';
 import { ErrorComponent } from './error/error.component';
 import { CardsListComponent } from './cards-list/cards-list.component';
 import { LogoutComponent } from './logout/logout.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CardComponent } from './card/card.component';
+import { HttpInterceptorBasicAuthService } from './service/http/http-interceptor-basic-auth.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,9 @@ import { CardComponent } from './card/card.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorBasicAuthService, multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
